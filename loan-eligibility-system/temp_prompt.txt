@@ -1,0 +1,53 @@
+<USER_REQUEST>
+it doesnt checked correctly because i entered a different name and the name in the document was different  so the AI should verify the user entered details and the uploaded docs are same and also do cross verification whether the name is same in every docs and as well as entered ...and do check font style are same and after generation it should be give like pdf if the user touch it it should be open with close option and user can download that  and in status tracking it should be shown like AI verified ... and that appkication should be submitted to respective branch manager .. so ## Feature: Automatic Applicant-to-Branch-Manager Mapping
+
+I have an existing AI-Based Loan Eligibility Prediction System built using React, HTML, CSS, and JavaScript for the frontend, Python FastAPI for the backend, and MySQL for the database.
+
+Implement a complete branch-based loan application assignment feature in both frontend and backend. First inspect the existing codebase, database schema, authentication, API routes, and applicant loan application workflow. Reuse the existing components and tables wherever possible. Do not rebuild the project or break existing features.
+
+### 1. Admin Module
+
+* Allow the admin to create and manage branches.
+* Allow the admin to assign a branch manager to each branch.
+* Ensure that a manager is assigned only to a valid branch.
+* Prevent conflicting or invalid branch-manager assignments.
+* Display the branch name and assigned manager in the admin dashboard.
+
+### 2. Applicant Frontend
+
+* Add a required branch-selection dropdown to the existing loan application form.
+* Fetch available branches from the backend API dynamically.
+* Display the branch name and location in the dropdown.
+* Do not hardcode branch names or manager details in the frontend.
+* Preserve all existing personal, financial, document-upload, and loan details.
+* Display a clear validation message if the applicant does not select a branch.
+
+### 3. Backend Assignment Logic
+
+* When an applicant subm
+<truncated 3467 bytes>
+tables, routes, components, and services.
+* Implement the actual frontend and backend changes; do not provide pseudocode or mock data.
+* Do not create duplicate tables, duplicate API endpoints, or a second authentication system unnecessarily.
+* Do not change the existing technology stack.
+* Provide a concise summary of modified files, database changes, API endpoints, and commands needed to run or test the feature.
+* Clearly identify any assumptions or existing database issues that must be resolved before the feature can work.
+
+The final result should allow an applicant to select a branch, automatically assign the application to the correct branch manager through the backend, and ensure that only the authorized manager can review that application's details.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-13T11:25:31+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend\app\services\ml_engine.py (LANGUAGE_PYTHON)
+Cursor is on line: 26
+Other open documents:
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend\app\services\ml_engine.py (LANGUAGE_PYTHON)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\services\apiClient.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\services\applicationService.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\pages\applicant\EducationLoanForm.jsx (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\context\AuthContext.jsx (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- uvicorn app.main:app --reload --port 8000 (in c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend, running for 1h19m45s)
+</ADDITIONAL_METADATA>

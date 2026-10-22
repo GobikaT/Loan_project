@@ -1,0 +1,99 @@
+<USER_REQUEST>
+it doesnt checked correctly because i entered a different name and the name in the document was different  so the AI should verify the user entered details and the uploaded docs are same and also do cross verification whether the name is same in every docs and as well as entered ...and do check font style are same and after generation it should be give like pdf if the user touch it it should be open with close option and user can download that  and in status tracking it should be shown like AI verified ... and that appkication should be submitted to respective branch manager .. so ## Feature: Automatic Applicant-to-Branch-Manager Mapping
+
+I have an existing AI-Based Loan Eligibility Prediction System built using React, HTML, CSS, and JavaScript for the frontend, Python FastAPI for the backend, and MySQL for the database.
+
+Implement a complete branch-based loan application assignment feature in both frontend and backend. First inspect the existing codebase, database schema, authentication, API routes, and applicant loan application workflow. Reuse the existing components and tables wherever possible. Do not rebuild the project or break existing features.
+
+### 1. Admin Module
+
+* Allow the admin to create and manage branches.
+* Allow the admin to assign a branch manager to each branch.
+* Ensure that a manager is assigned only to a valid branch.
+* Prevent conflicting or invalid branch-manager assignments.
+* Display the branch name and assigned manager in the admin dashboard.
+
+### 2. Applicant Frontend
+
+* Add a required branch-selection dropdown to the existing loan application form.
+* Fetch available branches from the backend API dynamically.
+* Display the branch name and location in the dropdown.
+* Do not hardcode branch names or manager details in the frontend.
+* Preserve all existing personal, financial, document-upload, and loan details.
+* Display a clear validation message if the applicant does not select a branch.
+
+### 3. Backend Assignment Logic
+
+* When an applicant submits a loan application, validate the selected branch ID.
+* Retrieve the branch's assigned manager from the MySQL database on the backend.
+* Automatically associate the application with that branch and manager.
+* Store the branch ID and assigned manager ID in the application record, using the existing database structure where possible.
+* Never trust a manager ID supplied by the frontend. Derive the assignment from the database.
+* If the branch is invalid, inactive, or has no assigned manager, handle the situation safely and return a meaningful error instead of silently assigning the wrong manager.
+* Ensure the assignment and application creation are handled consistently so that incomplete records are not created.
+
+### 4. Branch Manager Dashboard
+
+* Display only applications belonging to the authenticated manager's assigned branch.
+* Show applicant name, application ID, loan type, requested amount, submission date, AI prediction result, and application status.
+* Allow the manager to view application details, review supporting documents, and update the final decision using the existing workflow.
+* Enforce branch-level access permissions in FastAPI, not just by hiding records in React.
+* Prevent managers from viewing or modifying applications belonging to other branches by changing URL IDs or API parameters.
+
+### 5. FastAPI and MySQL
+
+* Follow the existing project architecture, SQLAlchemy models, schemas, services, and API conventions.
+* Add or update endpoints for retrieving active branches, assigning managers to branches, and submitting applications with automatic manager assignment.
+* Validate all request data using the existing Pydantic conventions.
+* Use database relationships and foreign keys where appropriate.
+* Add database migrations or a safe schema update if required. Do not drop existing tables or delete existing data.
+* Reuse the existing authentication and role-based authorization system.
+* Return appropriate HTTP status codes and clear error messages.
+
+### 6. Important Business Rules
+
+* One application must belong to the branch selected by the applicant.
+* The assigned manager must come from that branch's database mapping.
+* A manager must not be able to assign applications to themselves or another branch through a modified frontend request.
+* If an admin reassigns a branch to a different manager, define a consistent rule for existing applications. Prefer preserving each existing application's recorded assignment unless an explicit reassignment operation is performed.
+* Prevent duplicate application records caused by accidental repeated submissions where feasible.
+* Keep the AI eligibility prediction and the manager's final approval decision separate. The AI prediction must not automatically approve or reject a loan.
+
+### 7. Testing and Compatibility
+
+* Test branch creation and manager assignment.
+* Test the applicant branch dropdown and API integration.
+* Test successful application submission and automatic assignment.
+* Test invalid branch IDs and branches without managers.
+* Test that a manager cannot access another branch's applications.
+* Test that existing login, registration, AI prediction, application tracking, and admin features continue to work.
+* Handle loading states, API errors, and empty branch lists in the frontend.
+
+### 8. Implementation Requirements
+
+* Inspect the current code before making changes.
+* Identify and reuse existing tables, routes, components, and services.
+* Implement the actual frontend and backend changes; do not provide pseudocode or mock data.
+* Do not create duplicate tables, duplicate API endpoints, or a second authentication system unnecessarily.
+* Do not change the existing technology stack.
+* Provide a concise summary of modified files, database changes, API endpoints, and commands needed to run or test the feature.
+* Clearly identify any assumptions or existing database issues that must be resolved before the feature can work.
+
+The final result should allow an applicant to select a branch, automatically assign the application to the correct branch manager through the backend, and ensure that only the authorized manager can review that application's details.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-13T11:25:31+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend\app\services\ml_engine.py (LANGUAGE_PYTHON)
+Cursor is on line: 26
+Other open documents:
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend\app\services\ml_engine.py (LANGUAGE_PYTHON)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\services\apiClient.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\services\applicationService.js (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\pages\applicant\EducationLoanForm.jsx (LANGUAGE_JAVASCRIPT)
+- c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\frontend\src\context\AuthContext.jsx (LANGUAGE_JAVASCRIPT)
+Running terminal commands:
+- uvicorn app.main:app --reload --port 8000 (in c:\Users\GOBIKA\Downloads\loan-eligibility-system-complete\loan-eligibility-system\backend, running for 1h19m45s)
+</ADDITIONAL_METADATA>
